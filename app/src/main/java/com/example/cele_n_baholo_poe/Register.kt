@@ -13,6 +13,15 @@ class Register : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            reload()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -74,5 +83,11 @@ class Register : AppCompatActivity() {
     public fun makeToasts(text: String){
         Toast.makeText(this,text, Toast.LENGTH_LONG).show()
 
+    }
+
+
+    private  fun reload() {
+        super.onResume()
+        this.onCreate(null)
     }
 }
