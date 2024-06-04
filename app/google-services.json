@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "779469929286",
+    "project_id": "nk-inventory-26241",
+    "storage_bucket": "nk-inventory-26241.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779469929286:android:ad121cc2e948a5bb394347",
+        "android_client_info": {
+          "package_name": "com.example.cele_n_baholo_poe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpLHLPDW3F-GcH00F4LhsLdgv6PEz-mNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
