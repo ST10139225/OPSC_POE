@@ -8,22 +8,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/HomeMSg"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- This is the category button -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories"
+                android:id="@+id/btnCategoryHome"
+                android:textSize="14sp"
+                android:background="@color/Lapis_Lazuli"
+                />
+            <!-- This is the items button -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:text="@string/items"
+                android:id="@+id/btnItemHome"
+                android:textSize="14sp"
+                android:background="@color/Lapis_Lazuli"
+                />
+            <!-- This is the Achievements button -->
+            <Button
+                android:id="@+id/btnAchievementsHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/Lapis_Lazuli"
+                android:layout_marginLeft="7dp"
+
+                android:text="@string/achievements"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
 
 
     <Button
+        android:id="@+id/BtnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="19sp"
         android:text="@string/logout"
-        android:id="@+id/BtnLogout"
-        />
+        android:textSize="19sp" />
 </LinearLayout>

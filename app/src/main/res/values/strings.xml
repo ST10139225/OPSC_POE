@@ -8,4 +8,7 @@
     <string name="click_to_login">Click to login</string>
     <string name="click_here_to_register">Click here to Register</string>
     <string name="logout">Logout</string>
+    <string name="categories">Categories</string>
+    <string name="items">Items</string>
+    <string name="achievements">Achievements</string>
 </resources>
