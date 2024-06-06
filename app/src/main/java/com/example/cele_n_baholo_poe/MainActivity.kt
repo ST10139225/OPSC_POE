@@ -36,10 +36,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
          binding.BtnLogout.setOnClickListener{
              Firebase.auth.signOut()
-
-             Intent(this, Login::class.java).also{
-                 startActivity(it)
-             }
+             finish()
          }
 
 

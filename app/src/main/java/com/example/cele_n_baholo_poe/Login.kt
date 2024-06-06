@@ -17,14 +17,11 @@ class Login : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            reload()
-        }
+        auth.signOut()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         val binding = ActivityLoginBinding.inflate(layoutInflater)
-        super.onCreate(savedInstanceState)
+//        super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener{
@@ -75,8 +72,13 @@ class Login : AppCompatActivity() {
                 }
         }
 
+        super.onCreate(savedInstanceState)
+        
+
+
+
         binding.LnkRegister.setOnClickListener{
-                Intent(this,Login::class.java).also {
+                Intent(this,Register::class.java).also {
                     startActivity(it)
                 }
 
@@ -89,9 +91,5 @@ class Login : AppCompatActivity() {
 
     }
 
-    private  fun reload() {
-        super.onResume()
-        this.onCreate(null)
-    }
 
 }

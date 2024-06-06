@@ -17,6 +17,7 @@ class Register : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
+        auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser != null) {
             reload()
@@ -60,6 +61,10 @@ class Register : AppCompatActivity() {
 
                         val user = auth.currentUser
 
+                        Intent(this,Login::class.java).also {
+                            startActivity(it)
+                        }
+
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(
@@ -72,12 +77,8 @@ class Register : AppCompatActivity() {
 
         }
 
-        binding.LnkLogin.setOnClickListener{
-            Intent(this,Login::class.java).also{
-                startActivity(it)
-            }
 
-        }
+
     }
 
     public fun makeToasts(text: String){

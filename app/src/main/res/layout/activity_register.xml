@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="20dp"
-        android:text="@string/login"
+        android:text="@string/register"
         android:textSize="24sp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,13 +55,16 @@
         android:layout_height="wrap_content"
         android:text="@string/register"
         android:id="@+id/btnRegister"
-        android:background="@color/nice_navy_blue"/>
+        android:background="@color/Lapis_Lazuli"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:id="@+id/LnkLogin"
         android:text="@string/click_to_login"
+        android:layout_marginTop="15dp"
+
         android:textSize="18sp"/>
 
 
