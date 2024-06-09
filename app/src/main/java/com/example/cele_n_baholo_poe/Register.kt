@@ -45,35 +45,36 @@ class Register : AppCompatActivity() {
             } else if (Email.contains("@")==false){
                 makeToasts("Please enter a proper email address")
 
-            }
-            if (Password.isNullOrBlank()||Password.isNullOrEmpty()){
+            }else if (Password.isNullOrBlank()||Password.isNullOrEmpty()){
                 makeToasts("Please enter a Password")
             }else if (Password.length<8){
                 makeToasts("Please enter a Password that is 8 characters long")
-            }
+            } else {
 
-            auth.createUserWithEmailAndPassword(Email, Password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        makeToasts("createUserWithEmail:success")
-                        binding.progBar.isVisible = false
+                auth.createUserWithEmailAndPassword(Email, Password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            makeToasts("createUserWithEmail:success")
+                            binding.progBar.isVisible = false
 
-                        val user = auth.currentUser
+                            val user = auth.currentUser
 
-                        Intent(this,Login::class.java).also {
-                            startActivity(it)
+                            Intent(this, Login::class.java).also {
+                                startActivity(it)
+                            }
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(
+                                baseContext,
+                                "Authentication failed.",
+                                Toast.LENGTH_SHORT,
+                            ).show()
                         }
-
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
                     }
-                }
+
+            }
 
         }
 

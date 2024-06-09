@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.*
 import com.example.cele_n_baholo_poe.databinding.ActivityMainBinding
+import com.example.cele_n_baholo_poe.sampledata.AddCategory
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -59,14 +60,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnCategoryHome.setOnClickListener{
 
-            fireRef.setValue("Praise Thee Lord").addOnCompleteListener{
-                makeToasts("Added to test")
+           Intent(this, AddCategory::class.java).also{
+               startActivity(it)
             }
         }
 
     }
 
-    public fun makeToasts(text: String){
+    fun makeToasts(text: String){
         Toast.makeText(this,text, Toast.LENGTH_LONG).show()
 
     }
