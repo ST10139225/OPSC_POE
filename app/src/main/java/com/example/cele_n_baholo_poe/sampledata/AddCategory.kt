@@ -47,6 +47,21 @@ class AddCategory : AppCompatActivity() {
         val Num_of_Desired = binding.edtNumItems.text.toString()
         val Num_collect = 0
 
+
+        if(Name.isNullOrEmpty()||Name.isBlank()){
+            binding.edtTitle.error ="Enter a name"
+
+        }
+        if(Description.isNullOrEmpty()||Description.isBlank()){
+            binding.edtDescription.error ="Enter a description"
+
+        }
+
+        if(Num_of_Desired.isNullOrEmpty()||Num_of_Desired.isBlank()){
+            binding.edtNumItems.error ="Enter a number"
+
+        }
+
         val CateId = fireRef.push().key!!
 
         val category = Categorys(CateId, Name, Description, Num_of_Desired)
