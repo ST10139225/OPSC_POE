@@ -21,4 +21,8 @@
     <string name="category">category</string>
     <string name="acquisition_date">Acquisition Date</string>
     <string name="add_photo">Add Photo</string>
+    <string name="rc_category">Category:</string>
+    <string name="rc_lbl_description">Description</string>
+    <string name="rc_lbl_desired_number">Desired number:</string>
+    <string name="rc_lbl_collected">Collected:</string>
 </resources>
