@@ -23,7 +23,7 @@ class RvCategoryAdpter(private val CategoryLists: ArrayList<Categorys>) : Recycl
     override fun getItemCount(): Int {
         return  CategoryLists.size
     }
-
+ 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = CategoryLists[position]
