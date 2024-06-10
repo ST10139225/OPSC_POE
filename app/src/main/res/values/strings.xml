@@ -16,6 +16,9 @@
     <string name="description">Description</string>
     <string name="desired_number_of_items">Desired number of items</string>
     <string name="add">Add</string>
-    <string name="Helpful_cookie">This is where you enter a category for the items you want to collect.</string>
+    <string name="Helpful_cookie_category">This is where you enter a category for the items you want to collect.</string>
     <string name="category_name">Category Name</string>
+    <string name="category">category</string>
+    <string name="acquisition_date">Acquisition Date</string>
+    <string name="add_photo">Add Photo</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.*
+import com.example.cele_n_baholo_poe.ItemFeature.AddItem
 import com.example.cele_n_baholo_poe.databinding.ActivityMainBinding
 import com.example.cele_n_baholo_poe.sampledata.AddCategory
 import com.google.firebase.Firebase
@@ -62,6 +63,12 @@ class MainActivity : AppCompatActivity() {
 
            Intent(this, AddCategory::class.java).also{
                startActivity(it)
+            }
+        }
+
+        binding.btnItemHome.setOnClickListener{
+            Intent(this, AddItem::class.java).also{
+                startActivity(it)
             }
         }
 
