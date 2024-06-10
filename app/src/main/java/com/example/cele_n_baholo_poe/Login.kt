@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.set
 import androidx.core.view.isVisible
 import com.example.cele_n_baholo_poe.databinding.ActivityLoginBinding
-import com.example.cele_n_baholo_poe.sampledata.AddCategory
-import com.example.cele_n_baholo_poe.sampledata.AddingCategory
 import com.example.cele_n_baholo_poe.sampledata.CategoryMain
 import com.google.firebase.auth.FirebaseAuth
 
@@ -65,7 +63,7 @@ class Login : AppCompatActivity() {
                         binding.progBar.isVisible= false
                         val user = auth.currentUser
 
-                        Intent(this, AddCategory::class.java).also{
+                        Intent(this, MainActivity::class.java).also{
                             startActivity(it)
                         }
                     } else {

@@ -9,6 +9,7 @@ import com.example.cele_n_baholo_poe.databinding.ActivityAddItemBinding
 import com.example.cele_n_baholo_poe.models.Categorys
 import com.example.cele_n_baholo_poe.models.ItemModel
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.Calendar
@@ -37,8 +38,7 @@ class AddItem : AppCompatActivity() {
         }
 
 
-        fireRef = Firebase.database("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/")
-            .getReference("test")
+        fireRef = FirebaseDatabase.getInstance("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Items")
 
         binding.btnAdd.setOnClickListener{
             AddItems(dateFrmCalView)

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/itemImageView"
+
+        android:layout_width="124dp"
+        android:layout_height="90dp"
+        android:background="@drawable/ic_launcher_foreground" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item:"
+        android:id="@+id/itemName"
+        android:layout_toEndOf="@id/itemImageView"
+        android:textSize="22dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item DESCRIPTION:"
+        android:id="@+id/itemDescription"
+        android:layout_toEndOf="@id/itemImageView"
+        android:layout_below="@id/itemName"
+        android:textSize="22dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item category:"
+        android:id="@+id/itemCate"
+        android:layout_toEndOf="@id/itemImageView"
+        android:layout_below="@id/itemDescription"
+        android:textSize="22dp"
+        />
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="9dp"
+        android:layout_below="@id/itemCate"
+        android:background="#9C9C9C"
+        />
+</RelativeLayout>
