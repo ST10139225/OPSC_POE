@@ -4,8 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.set
 import androidx.core.view.isVisible
 import com.example.cele_n_baholo_poe.databinding.ActivityLoginBinding
+import com.example.cele_n_baholo_poe.sampledata.AddCategory
+import com.example.cele_n_baholo_poe.sampledata.AddingCategory
+import com.example.cele_n_baholo_poe.sampledata.CategoryMain
 import com.google.firebase.auth.FirebaseAuth
 
 class Login : AppCompatActivity() {
@@ -24,9 +28,13 @@ class Login : AppCompatActivity() {
 //        super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+         ;
+
         binding.btnLogin.setOnClickListener{
             var Email : String = binding.edtEmail.text.toString();
             var Password : String = binding.edtPassword.text.toString();
+            Email = "kokib777@gmail.com"
+            Password = "123Kokib7777"
 
             //initializing the auth
             auth = FirebaseAuth.getInstance()
@@ -57,7 +65,7 @@ class Login : AppCompatActivity() {
                         binding.progBar.isVisible= false
                         val user = auth.currentUser
 
-                        Intent(this, MainActivity::class.java).also{
+                        Intent(this, AddCategory::class.java).also{
                             startActivity(it)
                         }
                     } else {

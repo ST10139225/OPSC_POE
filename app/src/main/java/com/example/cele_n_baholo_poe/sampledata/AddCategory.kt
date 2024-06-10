@@ -1,12 +1,15 @@
 package com.example.cele_n_baholo_poe.sampledata
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.cele_n_baholo_poe.R
 import com.example.cele_n_baholo_poe.databinding.ActivityAddCategoryBinding
 import com.example.cele_n_baholo_poe.models.Categorys
+import com.example.cele_n_baholo_poe.models.serCategoryModel
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -21,12 +24,14 @@ class AddCategory : AppCompatActivity() {
           binding = ActivityAddCategoryBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        fireRef = Firebase.database("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/")
-                .getReference("test")
+        fireRef = FirebaseDatabase.getInstance("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Categories")
+
 
         binding.btnAdd.setOnClickListener {
 
             AddCat()
+
+
 
 
 
@@ -45,7 +50,7 @@ class AddCategory : AppCompatActivity() {
         val Name = binding.edtTitle.text.toString()
         val Description  = binding.edtDescription.text.toString()
         val Num_of_Desired = binding.edtNumItems.text.toString()
-        val Num_collect = 0
+        val Num_collect = "0"
 
 
         if(Name.isNullOrEmpty()||Name.isBlank()){
@@ -64,11 +69,18 @@ class AddCategory : AppCompatActivity() {
 
         val CateId = fireRef.push().key!!
 
-        val category = Categorys(CateId, Name, Description, Num_of_Desired)
+        val category = Categorys(CateId, Name, Description, Num_of_Desired,Num_collect)
 
         fireRef.child(CateId).setValue(category)
             .addOnCompleteListener{
                 makeToasts("Glory to Christ The LORD")
+
+                Intent(this, CategoryMain::class.java).also{
+                    val categoryNew : serCategoryModel = serCategoryModel(CateId, Name, Description, Num_of_Desired,Num_collect)
+
+                    startActivity(it)
+                    it.putExtra("CategoryID",CateId)
+                }
             }
             .addOnFailureListener{
                 makeToasts("Some failure ${it.message}")

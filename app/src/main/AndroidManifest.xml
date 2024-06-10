@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Cele_n_Baholo_POE"
         tools:targetApi="31">
         <activity
+            android:name=".sampledata.AddingCategory"
+            android:exported="false" />
+        <activity
             android:name=".ItemFeature.AddItem"
             android:exported="false" />
         <activity

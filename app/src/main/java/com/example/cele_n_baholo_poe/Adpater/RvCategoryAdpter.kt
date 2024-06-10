@@ -11,9 +11,13 @@ import com.example.cele_n_baholo_poe.models.ItemModel
 class RvCategoryAdpter(private val CategoryLists: ArrayList<Categorys>) : RecyclerView.Adapter<RvCategoryAdpter.MyViewHolder>() {
 
 
+    class MyViewHolder( val binding: RvCategoryItemBinding): RecyclerView.ViewHolder(binding.root){
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = RvCategoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(itemView)
+
+        return MyViewHolder(RvCategoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -23,20 +27,14 @@ class RvCategoryAdpter(private val CategoryLists: ArrayList<Categorys>) : Recycl
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = CategoryLists[position]
+        holder.binding.lblId.text ="ID: ${currentItem.id}"
+        holder.binding.lblName.text = "Name: ${currentItem.name}"
+                holder.binding.lblDescription.text = "Description: ${currentItem.description}"
+                holder.binding.lblDesiredNum.text = "Desired Num: ${currentItem.num_of_Desired}"
+                holder.binding.lblCollected.text = "Collected: ${currentItem.num_collect}"
 
-        holder.apply {
-            binding.apply {
-                lblName.text = currentItem.Name
-                lblDescription.text = currentItem.Description
-                lblDesiredNum.text = currentItem.Num_of_Desired
-                lblCollected.text = currentItem.Num_collect
-            }
-        }
 
     }
 
 
-    class MyViewHolder( val binding: RvCategoryItemBinding): RecyclerView.ViewHolder(binding.root){
-
-    }
 }

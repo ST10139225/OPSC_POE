@@ -8,6 +8,7 @@ import android.widget.Toast.*
 import com.example.cele_n_baholo_poe.ItemFeature.AddItem
 import com.example.cele_n_baholo_poe.databinding.ActivityMainBinding
 import com.example.cele_n_baholo_poe.sampledata.AddCategory
+import com.example.cele_n_baholo_poe.sampledata.CategoryMain
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnCategoryHome.setOnClickListener{
 
-           Intent(this, AddCategory::class.java).also{
+           Intent(this, CategoryMain::class.java).also{
                startActivity(it)
             }
         }
