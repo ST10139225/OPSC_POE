@@ -80,11 +80,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/acquisition_date"
+                android:id="@+id/calLabel"
                 android:textSize="18sp"
                 android:layout_marginTop="15dp"/>
 
         <CalendarView
-            android:id="@+id/aq_date"
+            android:id="@+id/aqDate"
             android:layout_width="278dp"
             android:layout_height="183dp"
             android:layout_marginTop="10dp"
