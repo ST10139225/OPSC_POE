@@ -7,11 +7,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.cele_n_baholo_poe.databinding.ActivityRegisterBinding
+import com.example.cele_n_baholo_poe.models.UserProfile
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class Register : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var fireRef: DatabaseReference
+
+
 
 
     public override fun onStart() {
@@ -38,6 +44,11 @@ class Register : AppCompatActivity() {
             //initializing the auth
             auth = FirebaseAuth.getInstance()
 
+
+            fireRef = FirebaseDatabase.getInstance("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/").getReference("UserProfiles")
+
+
+
             binding.progBar.isVisible = true
 
             if (Email.isNullOrBlank()||Email.isNullOrEmpty()){
@@ -59,6 +70,24 @@ class Register : AppCompatActivity() {
                             binding.progBar.isVisible = false
 
                             val user = auth.currentUser
+
+                            var uid :String =""
+                            var userprof :UserProfile? = null
+                            user?.let {
+                                uid = it.uid
+
+                                 userprof = UserProfile(uid,"0")
+                            }
+
+                            fireRef.child("Users").setValue(userprof)
+                                .addOnCompleteListener{
+                                    makeToasts("Add userprofile")
+
+
+                                }
+                                .addOnFailureListener{
+                                    makeToasts("Some failure ${it.message}")
+                                }
 
                             Intent(this, Login::class.java).also {
                                 startActivity(it)

@@ -1,10 +1,13 @@
 package com.example.cele_n_baholo_poe.ItemFeature
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.CalendarView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.cele_n_baholo_poe.R
 import com.example.cele_n_baholo_poe.databinding.ActivityAddItemBinding
 import com.example.cele_n_baholo_poe.models.Categorys
@@ -18,6 +21,8 @@ import java.util.Calendar
 class AddItem : AppCompatActivity() {
 
     private lateinit var fireRef: DatabaseReference
+
+    lateinit var itemImage :Bitmap
 
 
     private lateinit var binding: ActivityAddItemBinding
@@ -38,6 +43,23 @@ class AddItem : AppCompatActivity() {
 
         }
 
+        //Geting the photo
+
+        val getRes = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult())
+        {
+            if (it.resultCode == RESULT_OK && it.data !=null){
+                itemImage = it.data!!.extras?.get("data") as Bitmap
+                binding.imgUpload.setImageBitmap(itemImage)
+            }
+        }
+
+        binding.btnaddPhoto.setOnClickListener{
+            var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
+            getRes.launch(intent)
+        }
+        /// End of getting phot
 
         fireRef = FirebaseDatabase.getInstance("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Items")
 
@@ -75,7 +97,7 @@ class AddItem : AppCompatActivity() {
 
         fireRef.child(ItemId).setValue(New_Item)
             .addOnCompleteListener{
-                makeToasts("Glory to Christ The Living LORD")
+                makeToasts("Added item")
                 Intent(this, ItemMain::class.java).also{
                     startActivity(it)
                 }

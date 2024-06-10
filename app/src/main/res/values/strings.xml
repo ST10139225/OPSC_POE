@@ -26,4 +26,7 @@
     <string name="rc_lbl_desired_number">Desired number:</string>
     <string name="rc_lbl_collected">Collected:</string>
     <string name="id">ID</string>
+    <string name="update_item">Update Item</string>
+    <string name="update">Update</string>
+    <string name="achiever_achieved_your_collection_goal">Achiever: Achieved your collection goal</string>
 </resources>

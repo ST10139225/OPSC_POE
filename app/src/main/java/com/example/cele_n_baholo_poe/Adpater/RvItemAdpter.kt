@@ -32,6 +32,9 @@ class RvItemAdpter(private val ItemList: ArrayList<ItemModel>) : RecyclerView.Ad
         holder.binding.itemName.text = currentItem.name
         holder.binding.itemDescription.text = currentItem.description
         holder.binding.itemName.text = currentItem.acquisition_Date
+        holder.binding.rcContainerItem.setOnClickListener{
+
+        }
 
 
 

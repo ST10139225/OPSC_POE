@@ -1,5 +1,6 @@
 package com.example.cele_n_baholo_poe.sampledata
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.Toast.makeText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cele_n_baholo_poe.Adpater.RvCategoryAdpter
+import com.example.cele_n_baholo_poe.MainActivity
 import com.example.cele_n_baholo_poe.R
 import com.example.cele_n_baholo_poe.databinding.ActivityCategoryMainBinding
 import com.example.cele_n_baholo_poe.models.Categorys
@@ -32,22 +34,31 @@ class CategoryMain : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        // Initialize Firebase with the specific database URL
         database = FirebaseDatabase.getInstance("https://nk-inventory-26241-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Categories")
 
-        // Set up RecyclerView
         recyclerView = findViewById(R.id.Category_rc_List)
         recyclerView.layoutManager = LinearLayoutManager(this)
         itemList = ArrayList()
         adapter = RvCategoryAdpter(itemList)
         recyclerView.adapter = adapter
 
-        // Fetch data from Firebase
-        fetchDataFromFirebase()
+        fetchCategoriesFromFirebase()
+
+        binding.btnHome.setOnClickListener{
+            Intent(this, MainActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+        binding.btnAdd.setOnClickListener{
+            Intent(this, AddCategory::class.java).also {
+                startActivity(it)
+            }
+        }
+
     }
 
 
-    private fun fetchDataFromFirebase() {
+    private fun fetchCategoriesFromFirebase() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 itemList.clear()

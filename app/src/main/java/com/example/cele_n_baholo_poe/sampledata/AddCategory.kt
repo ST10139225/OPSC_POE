@@ -73,7 +73,7 @@ class AddCategory : AppCompatActivity() {
 
         fireRef.child(CateId).setValue(category)
             .addOnCompleteListener{
-                makeToasts("Glory to Christ The LORD")
+                makeToasts("Added Category ${Name}")
 
                 Intent(this, CategoryMain::class.java).also{
                     val categoryNew : serCategoryModel = serCategoryModel(CateId, Name, Description, Num_of_Desired,Num_collect)

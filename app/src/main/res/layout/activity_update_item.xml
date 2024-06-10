@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemFeature.UpdateItem"
+    android:orientation="vertical"
+    android:padding="25dp" >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/update_item"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/category_name"
+                    android:id="@+id/edtTitle"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/description"
+                    android:id="@+id/edtDescription"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/category"
+                    android:id="@+id/edtNumItems"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_photo"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"/>
+
+            <ImageButton
+                android:layout_width="78dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:tag="Add Photo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/acquisition_date"
+                android:id="@+id/calLabel"
+                android:textSize="18sp"
+                android:layout_marginTop="15dp"/>
+
+            <CalendarView
+                android:id="@+id/aqDate"
+                android:layout_width="278dp"
+                android:layout_height="183dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center" />
+
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15dp"
+                android:background="@color/Lapis_Lazuli"
+                android:text="@string/update" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/LnkRegister"
+        android:text="Enter the details of the Item you want to add"
+        android:textSize="18sp"/>
+
+</LinearLayout>
