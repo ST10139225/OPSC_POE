@@ -1,5 +1,6 @@
 package com.example.cele_n_baholo_poe.ItemFeature
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CalendarView
@@ -75,6 +76,10 @@ class AddItem : AppCompatActivity() {
         fireRef.child(ItemId).setValue(New_Item)
             .addOnCompleteListener{
                 makeToasts("Glory to Christ The Living LORD")
+                Intent(this, ItemMain::class.java).also{
+                    startActivity(it)
+                }
+
             }
             .addOnFailureListener{
                 makeToasts("Some failure ${it.message}")

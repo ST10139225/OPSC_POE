@@ -12,11 +12,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Item ID:"
+        android:id="@+id/itemId"
+        android:layout_toEndOf="@id/itemImageView"
+        android:textSize="19dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Item:"
         android:id="@+id/itemName"
         android:layout_toEndOf="@id/itemImageView"
+        android:layout_below="@id/itemId"
         android:textSize="22dp"
         />
+
 
     <TextView
         android:layout_width="match_parent"
@@ -27,6 +38,8 @@
         android:layout_below="@id/itemName"
         android:textSize="22dp"
         />
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
